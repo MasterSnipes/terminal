@@ -11,12 +11,13 @@ var app = new Vue({
 	methods: {
 		enterCommand: function (){
 			console.log(this.log);
+
 			if(this.curinput.length > 0) this.log.push({message:">> " + this.curinput, class:'normal'});
 			if(this.curinput === 'help') this.log.push({message: helpMessage, class:'outputMessage'});
 			else if(this.curinput === 'cls' || this.curinput === 'clear') this.log.length = 0;
 			else if(this.curinput==='') console.log('nothing in curinput');
 			else if(this.curinput==='src' || this.curinput==='source') {this.log.push({message:'<a href="https://github.com/mastersnipes/terminal/" class="btn" target="_blank">Link to source code</a>',class:'normal'})}
-			else if(this.curinput.length > 0){
+			else if(this.curinput.length > 0 && this.curinput.indexOf("<") === -1 && this.curinput.indexOf(">") === -1){
 				console.log(this.curinput.toString());
 				this.log.push({message: 'Sorry, <span style="color:rgb(129,169,132); font-weight: 900">' + this.curinput + '</span> was not recognized as a command. If this is a native HTML element, ignore this message. If not, then you have entered a command incorrectly.', class:'err'})
 			}
