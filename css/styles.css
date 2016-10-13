@@ -37,9 +37,24 @@ body {
 }
 * {
 	font-family: 'Inconsolata', monospace;
-	
+
 }
 .intro{
 	font-weight:bold;
-	color: #E65F5F;
+	color: #70D7EA;
+}
+::selection {
+  background: #d3d3d3; /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: #d3d3d3; /* Gecko Browsers */
+  color:white;
+}
+.outputMessage{
+	color:#95E89B;
+}
+.err{
+	color:#F45A5A;
+	font-weight: 900;
 }

@@ -24,7 +24,7 @@
     <div class="inputarea">
     <p>
     <span class="white-text">>></span>
-    <input type="text" class="commandinput white-text text-darken-3" id="inputbox" v-model='curinput' v-on:keyup.enter="enterCommand" placeholder="enter commands here" autofocus>
+    <input type="text" class="commandinput white-text text-darken-3" id="inputbox" v-model='curinput' v-on:keyup.enter="enterCommand" placeholder="start typing" autofocus>
     </p>
     </div>
 
@@ -33,6 +33,16 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script>
+        $('body').on('keydown', function() {
+            var input = $('.commandinput');
+
+            if(!input.is(':focus')) {
+                input.focus();
+            }
+
+        });
+      </script>
     </body>
   </html>
   
