@@ -3,11 +3,12 @@
     <head>
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
       <!--Import materialize.css-->
 
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/styles.css">
-      <title>Playground</title>
+      <title>Terminal</title>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <!-- Import Vue.js from a CDN host -->
@@ -16,14 +17,14 @@
     </head>
 	   
     <body>
-    <div class="game container">
+    <div class="app container">
     <ul class="output" id="outputbox">
-
+      <li v-for="logItem in log" v-html="logItem.message" v-bind:class="logItem.class"></li>
     </ul>
     <div class="inputarea">
     <p>
     <span class="white-text">>></span>
-    <input type="text" class="commandinput white-text text-darken-3" id="inputbox" v-model='curinput'>
+    <input type="text" class="commandinput white-text text-darken-3" id="inputbox" v-model='curinput' v-on:keyup.enter="enterCommand" placeholder="enter commands here" autofocus>
     </p>
     </div>
 
